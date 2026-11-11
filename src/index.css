@@ -1,14 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  html, body {
-    @apply bg-background text-gray-100 font-sans antialiased;
+  html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  html,
+  body {
+    @apply bg-background text-gray-100 font-sans antialiased;
+    overflow-x: clip;
   }
 }
 
@@ -17,11 +26,11 @@
   .glass-card {
     @apply bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl;
   }
-  
+
   /* Gradient border utility */
   .gradient-border {
     position: relative;
-    background: clip-padding;
+    background-clip: padding-box;
   }
   .gradient-border::before {
     content: "";
@@ -29,7 +38,7 @@
     inset: 0;
     padding: 1px;
     border-radius: inherit;
-    background: linear-gradient(135deg, rgba(36,123,255,0.8), rgba(255,53,79,0.8));
+    background: linear-gradient(135deg, rgba(36, 123, 255, 0.8), rgba(255, 53, 79, 0.8));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -38,8 +47,16 @@
 
   /* Cinematic Title Reveal Mask */
   .title-mask {
-    background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.25) 100%);
     -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .title-mask-primary {
+    background: linear-gradient(180deg, #247bff 0%, rgba(36, 123, 255, 0.35) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 }
@@ -50,4 +67,19 @@
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
   background-position: -1px -1px;
+}
+
+/* Custom dark scrollbar for modal */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(36, 123, 255, 0.6);
 }

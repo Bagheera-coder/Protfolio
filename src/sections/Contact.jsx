@@ -4,6 +4,8 @@ import { MoveRight } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export default function Contact() {
   const prefersReducedMotion = useReducedMotion();
   const { github, linkedin, instagram } = PORTFOLIO_DATA.personal;
@@ -20,15 +22,26 @@ export default function Contact() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative h-[400px] lg:h-[600px] flex justify-center lg:justify-start items-end"
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a101f] via-transparent to-transparent z-20"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a101f] via-transparent to-transparent z-20 pointer-events-none"></div>
           
-          <motion.img 
-            src="/images/Neon-Rimmed Man Pointing Right.png" 
-            alt="Abhishek Pointing" 
-            className="h-full w-auto object-contain relative z-10 drop-shadow-2xl"
+          <motion.div
+            className="h-full flex items-end"
             animate={prefersReducedMotion ? {} : { y: [0, -10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          />
+          >
+            <picture className="h-full flex items-end">
+              <source srcSet="/images/contact-portrait.webp" type="image/webp" />
+              <img 
+                src="/images/contact-portrait.png" 
+                alt="Abhishek Kumar pointing toward contact links" 
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                className="h-full w-auto object-contain relative z-10 drop-shadow-2xl"
+              />
+            </picture>
+          </motion.div>
         </motion.div>
 
         {/* Right - Content */}
@@ -39,8 +52,8 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <h2 className="text-5xl md:text-7xl font-black leading-tight">
-              LET'S BUILD <br/>
-              <span className="text-primary title-mask">SOMETHING.</span>
+              LET&apos;S BUILD <br/>
+              <span className="title-mask-primary">SOMETHING.</span>
             </h2>
           </motion.div>
 
@@ -98,13 +111,37 @@ export default function Contact() {
           </div>
           
           <div className="flex space-x-6 text-gray-500">
-            <a href={github} className="hover:text-white transition-colors"><FaGithub size={20} /></a>
-            <a href={linkedin} className="hover:text-white transition-colors"><FaLinkedin size={20} /></a>
-            <a href={instagram} className="hover:text-white transition-colors"><FaInstagram size={20} /></a>
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile"
+              className="hover:text-white transition-colors"
+            >
+              <FaGithub size={20} />
+            </a>
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
+              className="hover:text-white transition-colors"
+            >
+              <FaLinkedin size={20} />
+            </a>
+            <a
+              href={instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram profile"
+              className="hover:text-white transition-colors"
+            >
+              <FaInstagram size={20} />
+            </a>
           </div>
           
           <div className="text-gray-500 text-sm font-medium">
-            © {new Date().getFullYear()} Abhishek Kumar
+            © {CURRENT_YEAR} Abhishek Kumar
           </div>
         </div>
       </footer>

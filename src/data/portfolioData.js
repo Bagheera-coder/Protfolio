@@ -60,11 +60,11 @@ export const PORTFOLIO_DATA = {
       type: "MERN E-commerce / Scrap Marketplace",
       description: "A MERN-based marketplace for listing and discovering scrap items.",
       features: [
-        "JWT authentication", "product listing", "product management", "cart",
-        "checkout", "seller dashboard", "admin functionality", "image uploads",
-        "Cloudinary", "payment integration", "REST APIs"
+        "JWT Authentication", "Product Listing", "Product Management", "Cart",
+        "Checkout", "Seller Dashboard", "Admin Functionality", "Image Uploads",
+        "Cloudinary", "Payment Integration", "REST APIs"
       ],
-      tech: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Cloudinary", "Razorpay / payment integration"],
+      tech: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Cloudinary", "Razorpay / Payment Integration"],
       liveUrl: "https://scrap-bazar.vercel.app/",
       featured: true
     },
@@ -107,6 +107,12 @@ export const PORTFOLIO_DATA = {
       issuer: "Tutedude",
       year: "2026",
       url: null // NOT PROVIDED YET
+    },
+    {
+      title: "Cloud Computing – NPTEL",
+      issuer: "NPTEL",
+      year: null,
+      url: "https://drive.google.com/file/d/1n3ZJLVHJC_M5XKRQ_cXRj7J98JpHz5uL/view?usp=drive_link"
     }
   ],
   achievements: [

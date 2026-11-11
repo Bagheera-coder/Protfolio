@@ -31,7 +31,10 @@ export default function Education() {
               transition={{ delay: idx * 0.2, duration: 0.6 }}
               className="relative gradient-border p-8 rounded-2xl bg-[#0d1428] flex flex-col group overflow-hidden"
             >
-              <div className="absolute top-0 right-0 -mr-4 -mt-4 text-9xl font-black text-white/5 opacity-50 group-hover:scale-110 transition-transform duration-700">
+              <div
+                aria-hidden="true"
+                className="absolute top-0 right-0 -mr-4 -mt-4 text-9xl font-black text-white/5 opacity-50 group-hover:scale-110 transition-transform duration-700 pointer-events-none select-none"
+              >
                 0{idx + 1}
               </div>
 

@@ -30,7 +30,7 @@ export default function Experience() {
             transition={{ duration: 0.6 }}
             className="glass-card p-8 md:p-10 relative overflow-hidden group"
           >
-            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+            <div aria-hidden="true" className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none">
               <Briefcase size={80} />
             </div>
 

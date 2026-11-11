@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Award } from 'lucide-react';
+import { ExternalLink, Award, Clock } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
 export default function Certifications() {
@@ -18,7 +18,7 @@ export default function Certifications() {
           <h3 className="text-4xl md:text-5xl font-black">CERTIFICATIONS</h3>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PORTFOLIO_DATA.certifications.map((cert, idx) => (
             <motion.div
               key={cert.title + idx}
@@ -33,9 +33,11 @@ export default function Certifications() {
                   <div className="p-3 bg-white/5 rounded-full text-primary">
                     <Award size={24} />
                   </div>
-                  <span className="text-gray-400 font-bold bg-white/5 px-3 py-1 rounded-full text-sm">
-                    {cert.year}
-                  </span>
+                  {cert.year && (
+                    <span className="text-gray-400 font-bold bg-white/5 px-3 py-1 rounded-full text-sm">
+                      {cert.year}
+                    </span>
+                  )}
                 </div>
                 <h4 className="text-2xl font-bold text-white mb-2">{cert.title}</h4>
                 <p className="text-primary font-medium">{cert.issuer}</p>
@@ -53,8 +55,9 @@ export default function Certifications() {
                     <ExternalLink size={16} />
                   </a>
                 ) : (
-                  <div className="inline-flex items-center space-x-2 text-gray-500 bg-white/5 py-2 px-5 rounded-lg text-sm font-bold tracking-wider cursor-not-allowed">
-                    <span>NOT UPLOADED YET</span>
+                  <div className="inline-flex items-center space-x-2 text-gray-300 bg-white/5 border border-white/10 py-2 px-5 rounded-lg text-sm font-semibold tracking-wider">
+                    <Clock size={15} className="text-primary" />
+                    <span>VERIFICATION PENDING</span>
                   </div>
                 )}
               </div>

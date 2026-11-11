@@ -35,10 +35,10 @@ export default function Journey() {
             {journeySteps.map((step, idx) => {
               const isEven = idx % 2 === 0;
               return (
-                <div key={idx} className={`relative flex items-center ${isEven ? 'md:justify-start' : 'md:justify-end'}`}>
+                <div key={`${step.year}-${step.title}`} className={`relative flex items-center ${isEven ? 'md:justify-start' : 'md:justify-end'}`}>
                   
                   {/* Glowing Node */}
-                  <div className={`absolute left-[-5px] md:left-1/2 md:-translate-x-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_rgba(36,123,255,0.8)]`}></div>
+                  <div className="absolute left-[-7px] md:left-1/2 md:-translate-x-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_rgba(36,123,255,0.8)]"></div>
 
                   {/* Content Card */}
                   <motion.div 

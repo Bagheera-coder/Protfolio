@@ -36,7 +36,7 @@ export default function Skills() {
         </div>
 
         <div className="w-full md:w-2/3 space-y-12">
-          {Object.entries(PORTFOLIO_DATA.skills).map(([category, skills], idx) => (
+          {Object.entries(PORTFOLIO_DATA.skills).map(([category, skills]) => (
             <motion.div
               key={category}
               variants={containerVars}
